@@ -33,9 +33,13 @@ lex.head()
 #verbs_low = verbs.loc[(verbs.freqlivres < 10.0) & (verbs.freqlivres > 1.0)]
 
 for word in text_input.split():
-    subset_word = lex.loc[lex.ortho == word]
+    #subset_word = lex.loc[(lex.ortho == word)]
+    #subset_word.lemme.to_csv('text_output.txt', index=False)
+    subset_word = (lex.loc[(lex.ortho == word)]).lemme
+    print(subset_word)
 
-    subset_word.to_csv('text_output', index=False)
+
+
     #lemme = lex.loc[lex.lemme == str(subset_word.lemme) ]
     #print(lemme)
     #if subset_word :
